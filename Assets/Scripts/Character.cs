@@ -8,13 +8,14 @@ public class Character : MonoBehaviour
     [SerializeField] float ZSpeed;
     [SerializeField] Animator Anim;
     [SerializeField] float MaxX;
-  [SerializeField] List<LimbControl> limbScriptList = new List<LimbControl>();
-    int Difference;
-    int MovingSpheresInt;
     float AnimTimer;
     private Vector3 MovementVector;
-  private string activeAnim;
-  private bool Go;
+    private string activeAnim;
+    private bool Go;
+    [SerializeField] List<LimbControl> limbScriptList = new List<LimbControl>();
+    int Difference;
+    int MovingSpheresInt;
+    
 
  
   private void Awake()

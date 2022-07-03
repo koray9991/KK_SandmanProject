@@ -1,18 +1,16 @@
 using UnityEngine;
 public class Sphere : MonoBehaviour
 {
-  [SerializeField] Rigidbody rb;
-  [SerializeField] LimbControl limbScript;
   
+  [SerializeField] LimbControl limbScript;
   private Vector3 startLocalPosition, endLocalPosition;
-  private float localPositionCounter;
   private bool goLocalPosition;
   public float startYPosition;
   private void Start()
   {
     Manager.Instance.ActiveSpheres.Add(this);
    
-    startYPosition = transform.position.y;
+    
   }
   private void Update()
   {
