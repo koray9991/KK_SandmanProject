@@ -10,7 +10,7 @@ public class Sphere : MonoBehaviour
   public float startYPosition;
   private void Start()
   {
-    Manager.Instance.sphereActiveObjectList.Add(this);
+    Manager.Instance.ActiveSpheres.Add(this);
    
     startYPosition = transform.position.y;
   }
@@ -18,15 +18,9 @@ public class Sphere : MonoBehaviour
   {
     if (goLocalPosition)
     {
-      localPositionCounter += Time.deltaTime * 2f;
-      transform.localPosition = Vector3.Slerp(startLocalPosition, endLocalPosition, localPositionCounter);
-      if (localPositionCounter > 1f)
-      {
-        localPositionCounter = 0;
-        goLocalPosition = false;
-        Manager.Instance.DeactiveteObject(this);
-        Character.Instance.ControlAnimation();
-      }
+     
+      transform.localPosition = Vector3.Slerp(startLocalPosition, endLocalPosition, 1);
+     
     }
   }
   private void OnTriggerEnter(Collider other)

@@ -4,8 +4,9 @@ public class Character : MonoBehaviour
 {
   public static Character Instance;
  
-  [SerializeField] float Speed = 3;
-  [SerializeField] Animator Anim;
+  [SerializeField] float XSpeed;
+    [SerializeField] float ZSpeed;
+    [SerializeField] Animator Anim;
     [SerializeField] float MaxX;
   [SerializeField] List<LimbControl> limbScriptList = new List<LimbControl>();
     int Difference;
@@ -23,7 +24,7 @@ public class Character : MonoBehaviour
   private void Start()
   {
     
-        MovementVector = new Vector3(0, 0, 1);
+        MovementVector = new Vector3(0, 0, ZSpeed);
     }
   private void FixedUpdate()
   {
@@ -54,12 +55,12 @@ public class Character : MonoBehaviour
     if (Input.GetMouseButton(0))
     {
       MovementVector.x = Input.GetAxis("Mouse X");
-        }
-        else
-        {
+    }
+    else
+     {
             MovementVector.x = 0;
-        }
-    transform.Translate(Speed * Time.deltaTime * MovementVector, Space.World);
+     }
+    transform.Translate(XSpeed * Time.deltaTime * MovementVector);
     transform.position = new Vector3(Mathf.Clamp(transform.position.x, -MaxX, MaxX), transform.position.y, transform.position.z);
    
   }
@@ -112,6 +113,7 @@ public class Character : MonoBehaviour
         if (other.CompareTag("Collectable"))
         {
             ControlLimbs(other.transform);
+            other.gameObject.SetActive(false);
         }
     }
     private void ControlLimbs(Transform t)

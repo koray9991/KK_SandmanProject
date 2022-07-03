@@ -3,8 +3,8 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
   public static Manager Instance;
-  public List<Sphere> sphereActiveObjectList;
-  public List<Sphere> sphereDeactiveObjectList;
+  public List<Sphere> ActiveSpheres;
+  public List<Sphere> DeactiveSpheres;
   private void Awake()
   {
     Instance = this;
@@ -12,8 +12,8 @@ public class Manager : MonoBehaviour
   public void DeactiveteObject(Sphere sphere)
   {
     sphere.transform.parent = transform;
-    sphereActiveObjectList.Remove(sphere);
-    sphereDeactiveObjectList.Add(sphere);
+        ActiveSpheres.Remove(sphere);
+        DeactiveSpheres.Add(sphere);
     sphere.gameObject.SetActive(false);
   }
   
