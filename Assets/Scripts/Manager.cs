@@ -12,8 +12,8 @@ public class Manager : MonoBehaviour
   public void DeactiveteObject(Sphere sphere)
   {
     sphere.transform.parent = transform;
-        ActiveSpheres.Remove(sphere);
-        DeactiveSpheres.Add(sphere);
+    ActiveSpheres.Remove(sphere);
+    DeactiveSpheres.Add(sphere);
     sphere.gameObject.SetActive(false);
   }
   

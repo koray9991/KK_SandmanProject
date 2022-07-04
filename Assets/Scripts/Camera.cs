@@ -2,7 +2,7 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
   [SerializeField] Transform targetTransform;
-    public float IndexZ;
+  [SerializeField] float IndexZ;
   
   private void LateUpdate()
   {
